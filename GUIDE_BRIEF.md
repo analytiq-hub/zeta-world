@@ -38,7 +38,7 @@ How this brief reads that. These are assumptions; if one is wrong, Alex will say
 
 ## 3. Where things stand
 
-**Live:** https://alex-lop.github.io/zeta-world/ . **Repo:** `Alex-lop/zeta-world`, public. GitHub Pages serves `main` from the repo root. A merge is live about 30 seconds later. There is no build step and no check between a push and the public page.
+**Live:** https://analytiqhub.com/zeta-world/ . **Repo:** `analytiq-hub/zeta-world`, public. GitHub Pages serves `main` from the repo root. A merge is live about 30 seconds later. There is no build step and no check between a push and the public page.
 
 | File | What it is |
 |---|---|
@@ -59,7 +59,7 @@ Inside `index.html`'s module, in order: layout constants (`WIDTH`, `LEN`, `RISE`
 
 - A teammate (GitHub `andrei-radulescu-banu`) merged PR #2 at 2:10 PM. His explorer is on `main` and live, and `index.html` links to it just after the `</details>` in the text panel.
 - He now has **PR #6 open** (branch `andrei-devel`): more explorer tabs (L-functions, primes) and `proof.html`, a page on how the announced proof works. It adds `dirichlet.js`, `primes.js`, `primesView.js`, `proof.html`, `proof.js` and `proofMath.js` at the repo root, and it changes `index.html`, `README.md`, `main.js`, `zeta.js` and his doc. GitHub reports it as conflicting with `main`. Resolving that is his job. Do not merge, edit or comment on it, and do not wait for it.
-- **`proof.html` sets the direction for the guide's second half.** Read it before you design steps 7 to 9 (section 5.4). His Primes tab overlaps step 6: look at it too, with `gh pr diff 6 --repo Alex-lop/zeta-world`.
+- **`proof.html` sets the direction for the guide's second half.** Read it before you design steps 7 to 9 (section 5.4). His Primes tab overlaps step 6: look at it too, with `gh pr diff 6 --repo Alex-lop/riemann-zeta-world`.
 - The session that wrote `PLAN.md` is finished. The session that wrote this brief is finished too. `PLAN.md` describes a dark page with a gold line; where it differs from this brief on look or on order, this brief is right.
 
 ## 4. The look: Alex's personal site, kept all the way through
@@ -310,7 +310,7 @@ PR #6 also changes `index.html`, and so will you. You cannot avoid that conflict
 
 ## 8. How to work
 
-**Shipping rule.** Work on a branch in a git worktree, so the main checkout stays on `main` and clean. Look at it locally with `python3 -m http.server 8000 --bind 127.0.0.1`. Open a PR with `gh pr create`. Merge from the main checkout, by number: `gh pr merge <number> --squash --delete-branch --repo Alex-lop/zeta-world`, then `git pull --ff-only` there. (Run from inside the worktree, the merge command fails trying to switch branches.) Check the deploy with `gh run list --repo Alex-lop/zeta-world --limit 1` and load the live URL once. If the live page is broken, revert first and debug after. Alex has asked for work to be pushed as it is done, so merging your own PRs is expected.
+**Shipping rule.** Work on a branch in a git worktree, so the main checkout stays on `main` and clean. Look at it locally with `python3 -m http.server 8000 --bind 127.0.0.1`. Open a PR with `gh pr create`. Merge from the main checkout, by number: `gh pr merge <number> --squash --delete-branch --repo analytiq-hub/zeta-world`, then `git pull --ff-only` there. (Run from inside the worktree, the merge command fails trying to switch branches.) Check the deploy with `gh run list --repo analytiq-hub/zeta-world --limit 1` and load the live URL once. If the live page is broken, revert first and debug after. Alex has asked for work to be pushed as it is done, so merging your own PRs is expected.
 
 **Never break the front door.** Build the new experience at a new URL first, `guide.html`. Merge it early and often so Alex and his teammate can watch it grow. Make it the home page only at the end. The current `index.html` stays the home page until then, dark as it is.
 

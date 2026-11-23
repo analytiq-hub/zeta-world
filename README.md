@@ -2,7 +2,7 @@
 
 An explainer of the Riemann zeta function in 3D, and a visual walk through the announced proof of the Riemann hypothesis. Built with Three.js for Sundai Hack 150 (Building 3D Worlds).
 
-**Live: https://alex-lop.github.io/zeta-world/** · [From primes to the proof, in 28 steps](https://alex-lop.github.io/zeta-world/learn.html) · Explore: `landscape.html` · The proof: `proof.html`, `step4.html` · [The plan](PLAN.md) · [Brief for the interactive guide](GUIDE_BRIEF.md)
+**Live: https://analytiqhub.com/zeta-world/** · [From primes to the proof, in 28 steps](https://analytiqhub.com/zeta-world/learn.html) · Explore: `landscape.html` · The proof: `proof.html`, `step4.html` · [The plan](PLAN.md) · [Brief for the interactive guide](GUIDE_BRIEF.md)
 
 The idea is still broad. The goal is a world you can fly through that lets you *see* the Riemann hypothesis, the most famous problem in math, and how it connects to the prime numbers.
 

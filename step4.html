@@ -110,7 +110,7 @@
             integer coordinates; its slope measures how finely its points are packed. If an injective integral map sends
             lattice A into lattice B and stretches nothing by more than a factor C, then
             slope(A) ≤ max slope(B) + log C. Divisibility by many primes pushes the slope of A up; the size of the map
-            caps it. (Archive: <a class="ref" href="https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Formalism/LatticeSlopes/LatticeSlopesProofs/SlopeInequality.lean#L111-L125" target="_blank" rel="noopener" title="Lean archive: slopeInequality_of">slopeInequality_of</a>, checked on its own.)</p>
+            caps it. (Archive: <a class="ref" href="https://github.com/leanprover-community/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Formalism/LatticeSlopes/LatticeSlopesProofs/SlopeInequality.lean#L111-L125" target="_blank" rel="noopener" title="Lean archive: slopeInequality_of">slopeInequality_of</a>, checked on its own.)</p>
         </details>
       </div>
       <div class="card">
@@ -151,11 +151,11 @@
           <p>All nine fields in the menu have <a class="ref" href="https://en.wikipedia.org/wiki/Heegner_number" target="_blank" rel="noopener" title="Wikipedia: Heegner number (the nine imaginary quadratic fields of class number 1)">class number 1</a>: unique factorization still holds, so every split prime
             factors into two explicit numbers of the field. Hover over a prime to see its factorization.</p>
           <p><b>Why inert primes give divisibility.</b> The numbers come from <a class="ref" href="https://en.wikipedia.org/wiki/Theta_function" target="_blank" rel="noopener" title="Wikipedia: Theta function">theta functions</a> of fields with <a class="ref" href="https://en.wikipedia.org/wiki/Complex_multiplication" target="_blank" rel="noopener" title="Wikipedia: Complex multiplication">complex multiplication</a>. At an
-            inert prime, a <a class="ref" href="https://en.wikipedia.org/wiki/Frobenius_endomorphism" target="_blank" rel="noopener" title="Wikipedia: Frobenius endomorphism">Frobenius congruence</a> makes certain 2×2 determinants divisible by √p (archive: <a class="ref" href="https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Formalism/SharpRestriction/GrowthBounds/CoarseMultiplicity/KeyMinorDvd.lean#L132-L155" target="_blank" rel="noopener" title="Lean archive: key_minor_dvd">key_minor_dvd</a>, checked on its own).</p>
+            inert prime, a <a class="ref" href="https://en.wikipedia.org/wiki/Frobenius_endomorphism" target="_blank" rel="noopener" title="Wikipedia: Frobenius endomorphism">Frobenius congruence</a> makes certain 2×2 determinants divisible by √p (archive: <a class="ref" href="https://github.com/leanprover-community/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Formalism/SharpRestriction/GrowthBounds/CoarseMultiplicity/KeyMinorDvd.lean#L132-L155" target="_blank" rel="noopener" title="Lean archive: key_minor_dvd">key_minor_dvd</a>, checked on its own).</p>
         </details>
         <details>
           <summary>Read more: what ASK is</summary>
-          <p>ASK adds up the divisibility gained, in logarithmic units (the archive's <a class="ref" href="https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Formalism/SizeWindowBrackets/FirstPrimeNeSecondPrime.lean#L72-L92" target="_blank" rel="noopener" title="Lean archive: definitions of ASK and MAIN">ASK and MAIN</a>):</p>
+          <p>ASK adds up the divisibility gained, in logarithmic units (the archive's <a class="ref" href="https://github.com/leanprover-community/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Formalism/SizeWindowBrackets/FirstPrimeNeSecondPrime.lean#L72-L92" target="_blank" rel="noopener" title="Lean archive: definitions of ASK and MAIN">ASK and MAIN</a>):</p>
           <p class="formula">ASK(a) = Σ<sub>n ≤ a</sub> Λ(n) · (1 − χ(n)) · (a/n − 1)</p>
           <ul>
             <li><a class="ref" href="https://en.wikipedia.org/wiki/Von_Mangoldt_function" target="_blank" rel="noopener" title="Wikipedia: Von Mangoldt function">Λ(n)</a> = log p when n is a prime p or a power of it, else 0. It measures divisibility in log units,
@@ -198,11 +198,11 @@
               L′/L is the logarithmic derivative of the L-function of χ at s = 1; for ℚ(√−7) it is about 0.0156.</li>
           </ul>
           <p>On the geometric side the same constant comes from the periods of the theta functions, through the
-            <a class="ref" href="https://en.wikipedia.org/wiki/Chowla%E2%80%93Selberg_formula" target="_blank" rel="noopener" title="Wikipedia: Chowla–Selberg formula">Chowla–Selberg formula</a> (archive: <a class="ref" href="https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/ChowlaSelbergPeriodStatement.lean#L9-L10" target="_blank" rel="noopener" title="Lean archive: chowla_selberg_period">chowla_selberg_period</a>). A prime-by-prime identity (<a class="ref" href="https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ChBalance.lean#L200-L222" target="_blank" rel="noopener" title="Lean archive: ch_balance">ch_balance</a>) and the cancellation of the main
+            <a class="ref" href="https://en.wikipedia.org/wiki/Chowla%E2%80%93Selberg_formula" target="_blank" rel="noopener" title="Wikipedia: Chowla–Selberg formula">Chowla–Selberg formula</a> (archive: <a class="ref" href="https://github.com/leanprover-community/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicSpectrum/Proofs/GeometryProofs/ChowlaSelbergPeriodStatement.lean#L9-L10" target="_blank" rel="noopener" title="Lean archive: chowla_selberg_period">chowla_selberg_period</a>). A prime-by-prime identity (<a class="ref" href="https://github.com/leanprover-community/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ChBalance.lean#L200-L222" target="_blank" rel="noopener" title="Lean archive: ch_balance">ch_balance</a>) and the cancellation of the main
             terms give ASK − MAIN = G − g<sub>χ</sub> exactly (here with equal weights). The chart computes ASK and MAIN from every
             prime up to 10⁶: they agree to about one part in a million, and the difference stays on the scale of √a.</p>
           <p class="small">The comparison that turns the geometric data into this prime-sum bound is checked in the archive as
-            an implication (<a class="ref" href="https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/PrimitiveCosets/CoreGm.lean#L12-L74" target="_blank" rel="noopener" title="Lean archive: core_gm">core_gm</a>), with its geometric inputs stated as hypotheses.</p>
+            an implication (<a class="ref" href="https://github.com/leanprover-community/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/PrimitiveCosets/CoreGm.lean#L12-L74" target="_blank" rel="noopener" title="Lean archive: core_gm">core_gm</a>), with its geometric inputs stated as hypotheses.</p>
         </details>
       </div>
       <div class="card">
@@ -228,7 +228,7 @@
           <summary>Read more</summary>
           <p>The source takes m between √(xδ) and 2√(xδ) with δ = x<sup>−ε/8</sup>, so m ≈ x<sup>½ − ε/16</sup>, slightly
             under √x. The comparison step demands x<sup>½ − ε</sup> ≤ m ≤ x<sup>½ + ε/2</sup> (the shaded window), and the
-            source's m always lies inside it. Denominators are tracked along the chain (archive: <a class="ref" href="https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Formalism/ThetaLiftIndependence/Statement.lean#L40-L57" target="_blank" rel="noopener" title="Lean archive: ChainInt">ChainInt</a>).</p>
+            source's m always lies inside it. Denominators are tracked along the chain (archive: <a class="ref" href="https://github.com/leanprover-community/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Formalism/ThetaLiftIndependence/Statement.lean#L40-L57" target="_blank" rel="noopener" title="Lean archive: ChainInt">ChainInt</a>).</p>
           <p class="small">riemann-rev reports the two cost terms but does not give an intuitive reason for each one's shape.</p>
         </details>
       </div>
@@ -293,7 +293,7 @@
             a constant 26, and 1 to restore the discarded characters.</p>
           <p>Divisibility can also fall slightly short of the ideal. <a class="ref" href="https://en.wikipedia.org/wiki/Galois_cohomology" target="_blank" rel="noopener" title="Wikipedia: Galois cohomology">Galois cohomology</a> along cyclotomic towers (<a class="ref" href="https://en.wikipedia.org/wiki/Iwasawa_theory" target="_blank" rel="noopener" title="Wikipedia: Iwasawa theory">Iwasawa theory</a>,
             with <a class="ref" href="https://en.wikipedia.org/wiki/Ferrero%E2%80%93Washington_theorem" target="_blank" rel="noopener" title="Wikipedia: Ferrero–Washington theorem">Ferrero–Washington</a> and <a class="ref" href="https://en.wikipedia.org/wiki/Poitou%E2%80%93Tate_duality" target="_blank" rel="noopener" title="Wikipedia: Poitou–Tate duality">Poitou–Tate duality</a>) bounds that shortfall uniformly over a whole window; it enters the
-            geometric error (archive: <a class="ref" href="https://github.com/Deicyde/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LayeredIsomorphisms/Window1.lean#L6-L58" target="_blank" rel="noopener" title="Lean archive: window1">window1</a>).</p>
+            geometric error (archive: <a class="ref" href="https://github.com/leanprover-community/riemann-hypothesis/blob/40e56bab026552e089d7afcfeff08d2defb9c005/src/Development/AutomorphicArithmetic/AutomorphicVarieties/LayeredIsomorphisms/Window1.lean#L6-L58" target="_blank" rel="noopener" title="Lean archive: window1">window1</a>).</p>
           <p>For a zero with real part β, the proof takes θ = ½ + ½·min(β − ½, ½) and any ε ≤ (θ − ½)/9.</p>
         </details>
       </div>

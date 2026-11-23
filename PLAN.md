@@ -8,7 +8,7 @@ Zeta landscapes and "zeros build the primes" sliders have been made many times, 
 
 ## Where things stand
 
-- **Live page:** https://alex-lop.github.io/zeta-world/ (GitHub Pages, served from `main` at the repo root). It is one `index.html`, no build step, with three.js 0.187.0 loaded from jsDelivr through an import map.
+- **Live page:** https://analytiqhub.com/zeta-world/ (GitHub Pages, served from `main` at the repo root). It is one `index.html`, no build step, with three.js 0.187.0 loaded from jsDelivr through an import map.
 - **What it shows:** the land from Re(s) = -0.5 to 1.5 for heights 0 to 237, coloured by phase, the gold line Re(s) = 1/2 with pins on the first 100 zeros, a roll-call counter, and the dated status line.
 - **What it lacks:** anything about primes, the walls and slabs, and a guided path.
 - **Build steps 1 and 2 are done and on `main`** (22 Nov, mid-afternoon). The work left starts at step 0, the card, and step 3, the primes panel.
