@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Q&amp;A with Claude (AI, not authoritative) | Zeta World</title>
+<meta name="description" content="Questions about the Riemann zeta function, the primes and the announced proof of the Riemann hypothesis, with AI-generated answers by Claude. Not authoritative.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='78' font-size='90' text-anchor='middle' fill='%23f5c542'>ζ</text></svg>">
+<style>
+  :root { --bg: #05060f; --panel: #0e1020; --line: #262a45; --text: #ebe9f5; --dim: #b9b6cc; --gold: #f5c542; --link: #8fd3ff; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 17px/1.6 system-ui, sans-serif; }
+  .wrap { max-width: 46rem; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+  a { color: var(--link); }
+  h1 { margin: 1.5rem 0 .25rem; font: italic 2.6rem/1.1 Georgia, 'Times New Roman', serif; }
+  .tag { margin: 0; color: var(--gold); }
+  .intro { color: var(--dim); }
+  .disclaimer { margin: 1rem 0 0; padding: .8rem 1rem; border: 1px solid rgb(255 140 90 / .55); border-left: 4px solid #ff8c5a;
+    border-radius: .5rem; background: rgb(255 140 90 / .08); font-size: .92rem; color: var(--dim); }
+  .disclaimer b { color: var(--text); }
+  .a .by { margin: 0 0 .6rem; font-size: .78rem; color: #ffb38f; letter-spacing: .02em; }
+  .a .by span { display: inline-block; margin-right: .45rem; padding: 0 .5rem; border-radius: 1rem; border: 1px solid rgb(255 140 90 / .6);
+    color: #ffb38f; font-weight: 600; }
+  .note { margin: 1rem 0 0; padding: .7rem 1rem; border-left: 3px solid var(--gold); background: var(--panel); font-size: .9rem; color: var(--dim); }
+  .tools { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin: 1.5rem 0 .5rem; }
+  #filter { flex: 1 1 16rem; padding: .55rem .8rem; border-radius: .5rem; border: 1px solid var(--line); background: var(--panel);
+    color: var(--text); font: inherit; font-size: .95rem; }
+  .tools button { padding: .5rem .8rem; border-radius: .5rem; border: 1px solid var(--line); background: var(--panel); color: var(--dim);
+    font: inherit; font-size: .85rem; cursor: pointer; }
+  .tools button:hover { color: var(--text); border-color: var(--gold); }
+  .topics { display: flex; flex-wrap: wrap; gap: .4rem; margin: .25rem 0 0; padding: 0; list-style: none; }
+  .topics a { display: inline-block; padding: .25rem .7rem; border: 1px solid var(--line); border-radius: 2rem; font-size: .85rem; text-decoration: none; }
+  h2 { margin: 2.5rem 0 .5rem; font: italic 1.7rem/1.2 Georgia, 'Times New Roman', serif; scroll-margin-top: 4rem; }
+  details.qa { margin-top: .75rem; background: var(--panel); border: 1px solid var(--line); border-radius: .75rem; scroll-margin-top: 4rem; }
+  details.qa[open] { border-color: rgb(245 197 66 / .45); }
+  details.qa > summary { cursor: pointer; list-style: none; padding: .9rem 1.1rem; font-weight: 600; font-size: 1.05rem; line-height: 1.4; }
+  details.qa > summary::-webkit-details-marker { display: none; }
+  details.qa > summary::before { content: "Q"; display: inline-block; width: 1.6em; color: var(--gold); font-weight: 700; }
+  details.qa > summary .perma { margin-left: .4rem; font-weight: 400; font-size: .8rem; color: var(--dim); text-decoration: none; opacity: 0; }
+  details.qa > summary:hover .perma, details.qa[open] > summary .perma { opacity: 1; }
+  .a { padding: 0 1.1rem 1rem 2.86rem; }
+  .a > p:first-child { margin-top: 0; }
+  .a p { margin: .65rem 0 0; }
+  .a ul, .a ol { margin: .5rem 0 0; padding-left: 1.2rem; }
+  .a li { margin-top: .25rem; }
+  .formula { margin: .7rem 0 0; padding: .55rem .9rem; background: var(--bg); border-radius: .5rem; text-align: center;
+    font: 1.08rem/1.5 Georgia, 'Times New Roman', serif; overflow-x: auto; }
+  .a table { margin: .7rem 0 0; border-collapse: collapse; font-size: .92rem; width: 100%; }
+  .a th, .a td { padding: .3rem .5rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+  .a th { color: var(--dim); font-weight: 600; }
+  .see { margin-top: .8rem !important; font-size: .88rem; color: var(--dim); }
+  .caveat { margin-top: .8rem !important; font-size: .88rem; color: var(--dim); border-left: 2px solid var(--line); padding-left: .7rem; }
+  code { font: .9em ui-monospace, SFMono-Regular, Menlo, monospace; }
+  sup, sub { line-height: 0; }
+  .empty { color: var(--dim); margin-top: 1rem; display: none; }
+  @media (max-width: 30rem) { body { font-size: 16px; } h1 { font-size: 2rem; } .a { padding-left: 1.1rem; } }
+</style>
+<script src="./nav.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Q&amp;A with Claude</h1>
+  <p class="tag">Questions about the zeta function, the primes and the announced proof, with answers generated by Claude (AI).</p>
+  <p class="intro">These questions came up while we built Zeta World. Each answer links to the part of the site that shows the
+    idea. Click a question to open it, or search.</p>
+  <div class="disclaimer" role="note">
+    <b>These answers are written by Claude, an AI model made by Anthropic. They are not authoritative.</b>
+    They have not been reviewed by mathematicians and may contain errors or oversimplifications. Treat them as a starting
+    point, and check the cited sources (or a textbook) before relying on anything here.
+    Found a mistake? <a href="https://github.com/analytiq-hub/zeta-world/issues">Open an issue</a>.
+  </div>
+  <p class="note">About the proof: a computer-checked proof of the Riemann hypothesis was announced on 20 November 2026. It has
+    been machine-checked but not yet peer reviewed, and there is no human-readable write-up. Answers about it follow the
+    account in <a href="https://github.com/nasqret/riemann-rev">riemann-rev</a> and report claims, not established results.</p>
+  <div class="tools">
+    <input id="filter" type="search" placeholder="Search the questions and answers…" aria-label="Search the questions and answers">
+    <button id="openAll" type="button">Open all</button>
+    <button id="closeAll" type="button">Close all</button>
+  </div>
+  <ul class="topics" aria-label="Topics">
+    <li><a href="#t-zeta">The zeta function</a></li>
+    <li><a href="#t-primes">Zeta and the primes</a></li>
+    <li><a href="#t-l">L-functions</a></li>
+    <li><a href="#t-proof">The announced proof</a></li>
+  </ul>
+  <p class="empty" id="empty">No question matches that search.</p>
+</header>
+
+<main>
+<section id="t-zeta">
+<h2>The zeta function</h2>
+
+<details class="qa" id="riemann-belief">
+<summary>Why did Bernhard Riemann believe his hypothesis was true?<a class="perma" href="#riemann-belief" aria-label="Link to this question">#</a></summary>
+<div class="a">
+  <p>He never said why. His 1859 paper mentions it in one sentence: he finds "approximately this number of real roots" and
+    says it is "very probable that all roots are real", adding that he had set aside the search for a proof "after some
+    fleeting futile attempts", because his main result did not need it. Three likely reasons:</p>
+  <ol>
+    <li><b>He computed zeros himself.</b> In 1932 Carl Ludwig Siegel found, in Riemann's unpublished notes, careful
+      calculations of the first zeros (the first is at t ≈ 14.1347), using a method now called the Riemann–Siegel formula.
+      They sat exactly on the line.</li>
+    <li><b>Zeros on the line are easy to count, and there seemed to be enough of them.</b> On the line his function is real,
+      so each zero is a sign change. He estimated the total number of zeros up to height T as about
+      (T/2π)log(T/2π) − T/2π and found roughly that many sign changes.</li>
+    <li><b>Symmetry.</b> The functional equation makes the critical line the natural axis of the problem.</li>
+  </ol>
+  <p class="caveat">More than 10<sup>13</sup> zeros have since been computed, all on the line. For the history, H. M. Edwards'
+    <i>Riemann's Zeta Function</i> (1974) walks through the 1859 paper.</p>
+</div>
+</details>
+
+<details class="qa" id="symmetric">
+<summary>Is the zeta function symmetric across the line Re(s) = ½?<a class="perma" href="#symmetric" aria-label="Link to this question">#</a></summary>
+<div class="a">
+  <p>ζ(s) itself is not. Its completed version ξ(s) is. The zeros in the critical strip are symmetric either way.</p>
+  <p>The functional equation links the two sides only up to a factor:</p>
+  <p class="formula">ζ(s) = χ(s)·ζ(1 − s), &nbsp; χ(s) = 2<sup>s</sup>π<sup>s−1</sup> sin(πs/2) Γ(1 − s)</p>
+  <p>That factor stretches one side, so |ζ| rises to the left and flattens toward 1 on the right. Riemann multiplied ζ by
+    factors that cancel it:</p>
+  <p class="formula">ξ(s) = ½ s(s − 1) π<sup>−s/2</sup> Γ(s/2) ζ(s), &nbsp; with &nbsp; ξ(s) = ξ(1 − s) &nbsp;and&nbsp; ξ(s̄) = conj ξ(s)</p>
+  <p>Together these give ξ(1 − s̄) = conj ξ(s). The point 1 − s̄ is the mirror image of s across the line, so |ξ| is exactly
+    mirror-symmetric, and on the line itself ξ is real.</p>
+  <p class="see">See it: the <a href="./landscape.html">explorer</a>, ζ(s) against completed ξ(s).</p>
+</div>
+</details>
+
+<details class="qa" id="conj">
+<summary>What does "conj ξ(s)" mean, and is the graph anti-symmetric across the real axis?<a class="perma" href="#conj" aria-label="Link to this question">#</a></summary>
+<div class="a">
+  <p>conj ξ(s) is the complex conjugate of the value: if ξ(s) = a + bi, then conj ξ(s) = a − bi.</p>
+  <p>ξ(s̄) = conj ξ(s) says that reflecting the input across the real axis reflects the output. That is <b>conjugate
+    symmetry</b>, not anti-symmetry:</p>
+  <table>
+    <tr><th>Part of ξ</th><th>Under t → −t</th></tr>
+    <tr><td>Re ξ</td><td>unchanged (symmetric)</td></tr>
+    <tr><td>Im ξ</td><td>changes sign (anti-symmetric)</td></tr>
+    <tr><td>|ξ| (terrain height)</td><td>unchanged</td></tr>
+    <tr><td>phase (color)</td><td>θ → −θ</td></tr>
+  </table>
+  <p>So the heights mirror exactly while paired colors swap. The same holds across the critical line. The two reflections
+    together are a 180° rotation about s = ½, which is ξ(s) = ξ(1 − s).</p>
+</div>
+</details>
+</section>
+
+<section id="t-primes">
+<h2>Zeta and the primes</h2>
+
+<details class="qa" id="primes">
+<summary>What is the relationship between the zeta function and the prime numbers?<a class="perma" href="#primes" aria-label="Link to this question">#</a></summary>
+<div class="a">
+  <p><b>1. ζ is built from the primes.</b> Euler showed, for Re(s) &gt; 1:</p>
+  <p class="formula">ζ(s) = Σ 1/n<sup>s</sup> = ∏<sub>p</sub> 1/(1 − p<sup>−s</sup>)</p>
+  <p>Multiplying out the product gives every 1/n<sup>s</sup> exactly once, because every number factors into primes in one way.</p>
+  <p><b>2. The zeros determine where the primes are.</b> Riemann's explicit formula is exact:</p>
+  <p class="formula">ψ(x) = x − Σ<sub>ρ</sub> x<sup>ρ</sup>/ρ − log 2π − ½ log(1 − x<sup>−2</sup>)</p>
+  <p>The term x is the main trend, from the pole at s = 1. Each zero ρ = β + iγ adds a wave of size about x<sup>β</sup>
+    oscillating like cos(γ log x).</p>
+  <p><b>3. The hypothesis is about how regular the primes are.</b> RH is equivalent to
+    π(x) = li(x) + O(√x log x): the primes are as evenly spread as they can be. A zero with real part β &gt; ½ would make the
+    error grow like x<sup>β</sup>.</p>
+  <p class="see">See it: the <a href="./landscape.html#primes">Primes tab</a> rebuilds the prime staircase from the zeros.</p>
+</div>
+</details>
+
+<details class="qa" id="staircase">
+<summary>What is the prime staircase?<a class="perma" href="#staircase" aria-label="Link to this question">#</a></summary>
+<div class="a">
+  <p>The graph of the prime-counting function π(x), the number of primes up to x. It is flat between primes and steps up by
+    one at each prime: π(10) = 4, because of 2, 3, 5 and 7.</p>
+  <p>From far away it looks like the smooth curve x/log x, or more accurately li(x). Up close it wanders above and below.
+    The Riemann hypothesis says that wandering stays about as small as √x.</p>
+  <p>The Primes tab draws a weighted version, ψ(x), whose steps are log p instead of 1 (see the next question).</p>
+</div>
+</details>
+
+<details class="qa" id="psi">
+<summary>What is the function ψ(x)?<a class="perma" href="#psi" aria-label="Link to this question">#</a></summary>
+<div class="a">
+  <p>A weighted prime count. Each prime p up to x adds log p, and so does each prime power p², p³, …</p>
+  <p>For x = 10: the prime powers are 2, 3, 4, 5, 7, 8, 9, so ψ(10) = 3 log 2 + 2 log 3 + log 5 + log 7 = log 2520 ≈ 7.83.
+    In general <b>ψ(x) = log(lcm(1, 2, …, x))</b>: 2520 is the smallest number divisible by 1 through 10.</p>
+  <p><b>Why log p?</b> Near x, about one number in log x is prime, so weighting by log p cancels the thinning:
+    ψ(x) ≈ x. (ψ(100) ≈ 94.05, ψ(1000) ≈ 996.68.) That makes ψ(x) − x the pure error.</p>
+  <p><b>Why prime powers?</b> They are what ζ produces: −ζ′/ζ(s) = Σ Λ(n)/n<sup>s</sup>, with Λ(n) = log p at powers of
+    p. With exactly these weights the explicit formula has no correction terms. Squares and higher powers contribute only
+    about √x in total.</p>
+</div>
+</details>
+</section>
+
+<section id="t-l">
+<h2>L-functions</h2>
+
+<details class="qa" id="l-equivalent">
+<summary>What is the equivalent of the zeta function for L-functions?<a class="perma" href="#l-equivalent" aria-label="Link to this question">#</a></summary>
+<div class="a">
+  <p>ζ is itself one: it is L(s, χ<sub>0</sub>) for the trivial character, every weight 1, modulus 1. A Dirichlet
+    L-function reweights the terms with a character χ, a pattern that repeats every q steps and is multiplicative:</p>
+  <table>
+    <tr><th>ζ(s)</th><th>L(s, χ)</th></tr>
+    <tr><td>Σ 1/n<sup>s</sup></td><td>Σ χ(n)/n<sup>s</sup></td></tr>
+    <tr><td>pole at s = 1</td><td>no pole if χ is non-trivial; L(1, χ) ≠ 0 (Dirichlet's theorem)</td></tr>
+    <tr><td>ξ(s) = ξ(1 − s)</td><td>Λ(s, χ) = ε(χ)·Λ(1 − s, χ̄), with |ε| = 1</td></tr>
+    <tr><td>trivial zeros −2, −4, …</td><td>−𝔞, −𝔞 − 2, … (𝔞 = 0 even χ, 1 odd χ)</td></tr>
+    <tr><td>ψ(x): all primes</td><td>ψ(x; q, a): primes ≡ a mod q</td></tr>
+    <tr><td>RH</td><td>GRH</td></tr>
+  </table>
+  <p>For example, the zeta function of the Gaussian integers factors as ζ(s)·L(s, χ<sub>−4</sub>).</p>
+  <p class="see">See it: the <a href="./landscape.html#dirichlet">L(s,χ) tab</a> of the explorer.</p>
+</div>
+</details>
+
+<details class="qa" id="l-symmetry">
+<summary>Why is the graph of L(s, χ) not symmetric?<a class="perma" href="#l-symmetry" aria-label="Link to this question">#</a></summary>
+<div class="a">
+  <p>The raw L(s, χ) is not, just as ζ is not. Switch to the <b>completed Λ(s, χ)</b> view:</p>
+  <table>
+    <tr><th></th><th>Real χ</th><th>Complex χ</th></tr>
+    <tr><td>mirror across σ = ½ (Λ view)</td><td>yes</td><td>yes</td></tr>
+    <tr><td>mirror across t = 0</td><td>yes</td><td>no: below the axis is the terrain of χ̄</td></tr>
+  </table>
+  <p>For a complex χ, zeros above and below the axis are at different heights: for the order-4 character mod 5, at +6.18 and
+    +8.46 but −4.13 and −9.44. Reflecting a zero of L(s, χ) gives a zero of L(s, χ̄), a different function. That is why a
+    proof has to handle all characters together.</p>
+</div>
+</details>
+</section>
+
+<section id="t-proof">
+<h2>The announced proof</h2>
+
+<details class="qa" id="gist">
+<summary>What is the gist of the proof? If a zero lies off the line, is the prime count estimate wrong?<a class="perma" href="#gist" aria-label="Link to this question">#</a></summary>
+<div class="a">
+  <p><b>The classical part (von Koch, 1901):</b> RH holds exactly when the prime count stays within about √x of its smooth
+    trend. A zero at β &gt; ½ would make it swing by about x<sup>β</sup>, above and below, forever. (The prime number theorem
+    stays true either way; it is the sharper error estimate that would fail.)</p>
+  <p><b>The new part, as the proof is described:</b></p>
+  <ol>
+    <li><b>Reflection.</b> A zero left of the line has a twin to the right, so it is enough to rule out the right half.</li>
+    <li><b>One side, some windows.</b> It is enough to cap the upward swings of a positively weighted prime count at about
+      √x, on infinitely many long windows [Y, Y<sup>3/2</sup>]. An off-line zero's growing wave would break through.</li>
+    <li><b>The cap comes from arithmetic.</b> A non-zero whole number divisible by many primes is large. Numbers built from
+      theta functions are divisible at many primes and bounded in size; repeated about √x times, that gives the cap. The two
+      costs x/m and m balance at m = √x.</li>
+  </ol>
+  <p class="see">See it: <a href="./proof.html">the proof in four pictures</a>.</p>
+</div>
+</details>
+
+<details class="qa" id="split-inert">
+<summary>What does it mean for a prime to split, stay inert, or ramify? And what is ASK?<a class="perma" href="#split-inert" aria-label="Link to this question">#</a></summary>
+<div class="a">
+  <p>In a bigger number system an ordinary prime may factor. In the Gaussian integers a + bi:</p>
+  <table>
+    <tr><th>p</th><th>what happens</th><th>χ(p)</th></tr>
+    <tr><td>5, 13</td><td><b>splits</b>: 5 = (2 + i)(2 − i)</td><td>+1</td></tr>
+    <tr><td>3, 7, 11</td><td><b>inert</b>: stays prime</td><td>−1</td></tr>
+    <tr><td>2</td><td><b>ramifies</b>: 2 = −i·(1 + i)²</td><td>0</td></tr>
+  </table>
+  <p>In ℚ(√−d), p splits when −d is a square mod p, stays inert when it is not, and ramifies when p divides the
+    discriminant. The numbers the proof builds are divisible at inert primes. <b>ASK</b> adds up that divisibility:</p>
+  <p class="formula">ASK(a) = Σ<sub>n ≤ a</sub> Λ(n)·(1 − χ(n))·(a/n − 1)</p>
+  <p>The factor 1 − χ(n) keeps inert primes (weight 2) and drops split ones. Against it stands the expected size MAIN, and
+    ASK − MAIN is exactly a prime sum, G − g<sub>χ</sub>. Divisibility cannot exceed what size allows, so that prime sum is
+    capped from above.</p>
+  <p class="see">See it: <a href="./step4.html#s4b">step 4b and 4c</a>, with real primes.</p>
+</div>
+</details>
+
+<details class="qa" id="detect">
+<summary>For a hypothetical zero at ½ + δ + iγ, when would it force the prime count outside the RH band, despite masking by the other zeros?<a class="perma" href="#detect" aria-label="Link to this question">#</a></summary>
+<div class="a">
+  <p class="by"><span>Claude</span> AI-generated answer · not authoritative</p>
+  <p>Assume this quartet {ρ, ρ̄, 1 − ρ, 1 − ρ̄} is the only one off the line. Its main pair adds a wave of amplitude
+    A(x) = 2x<sup>½+δ</sup>/|ρ|. Take as the band Schoenfeld's RH bound B(x) = √x log²x/(8π). His argument also bounds the
+    remaining on-line zeros plus truncation by B(x)(1 + o(1)): a deterministic envelope on the masking.</p>
+  <p>Phase is never the bottleneck: off-line zeros have γ &gt; 3·10<sup>12</sup> (RH is verified to that height), so the
+    wave passes through about 3·10<sup>11</sup> periods inside [X, 2X]. Detection is certain once A &gt; 2B:</p>
+  <p class="formula">log X* = (1/δ)·[ log(|ρ|/8π) + 2 log log X* ]·(1 + o(1))</p>
+  <table>
+    <tr><th>δ</th><th>X* at γ = 3·10<sup>12</sup></th></tr>
+    <tr><td>0.4</td><td>~10<sup>37</sup></td></tr>
+    <tr><td>0.1</td><td>~10<sup>162</sup></td></tr>
+    <tr><td>0.01</td><td>~10<sup>1833</sup></td></tr>
+  </table>
+  <p>In this envelope model the factor 2 is sharp. Smoothing (the ramp-weighted G) removes the log² and the truncation
+    term but divides the signal by another γ, and comes out worse here.</p>
+  <p><b>For finite windows:</b> certification needs a deterministic bound on the masking term, here from structure (the
+    other zeros are on the line). Without it, two off-line zeros with nearly equal γ could cancel over any window shorter
+    than about 2π/|γ<sub>1</sub> − γ<sub>2</sub>| in log x. And exact prime counts reach only about 10<sup>29</sup>, far short
+    of even 10<sup>37</sup>, which is why RH is tested by computing zeros.</p>
+  <p class="caveat">Schoenfeld's constant was not re-derived with the quartet removed; the "(1 + o(1))" is where a small
+    explicit adjustment would go. Effective Ω-results (for example by Pintz) give fully explicit versions.</p>
+</div>
+</details>
+</section>
+</main>
+</div>
+
+<script>
+// Search: show questions whose text matches every word typed; open the matches.
+(function () {
+  const items = [...document.querySelectorAll('details.qa')], sections = [...document.querySelectorAll('main section')];
+  const input = document.getElementById('filter'), empty = document.getElementById('empty');
+  input.addEventListener('input', () => {
+    const words = input.value.toLowerCase().split(/\s+/).filter(Boolean);
+    let shown = 0;
+    for (const d of items) {
+      const hit = words.every((w) => d.textContent.toLowerCase().includes(w));
+      d.hidden = !hit;
+      if (hit) shown++;
+      if (words.length) d.open = hit;
+    }
+    for (const s of sections) s.hidden = !s.querySelector('details.qa:not([hidden])');
+    empty.style.display = shown ? 'none' : 'block';
+  });
+  document.getElementById('openAll').addEventListener('click', () => items.forEach((d) => { d.open = true; }));
+  document.getElementById('closeAll').addEventListener('click', () => items.forEach((d) => { d.open = false; }));
+  // Opening a link to a question (qa.html#psi) opens that question.
+  const openHash = () => { const d = document.getElementById(location.hash.slice(1)); if (d && d.matches('details.qa')) d.open = true; };
+  addEventListener('hashchange', openHash);
+  openHash();
+})();
+</script>
+</body>
+</html>

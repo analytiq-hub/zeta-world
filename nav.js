@@ -10,6 +10,7 @@
     { key: 'learn', href: './learn.html', label: 'Learn', title: 'From the primes to the proof, step by step' },
     { key: 'explore', href: './landscape.html', label: 'Explore', title: 'The zeta landscape, ξ(s), L(s,χ) and the primes' },
     { key: 'proof', href: './proof.html', label: 'The proof', title: "The announced proof's strategy, in pictures" },
+    { key: 'qa', href: './qa.html', label: 'Q&A', title: 'Questions answered by Claude (AI-generated, not authoritative)' },
   ];
   // Shared with the front page, which shows the same words in its text panel.
   const CREDITS = 'Built by <a href="https://github.com/Alex-lop">Alexander Lopez</a> and ' +
@@ -17,7 +18,7 @@
     '<a href="https://github.com/analytiq-hub/zeta-world">Source on GitHub</a> · ' +
     'Found a mistake? <a href="https://github.com/analytiq-hub/zeta-world/issues">Open an issue</a>.';
   const file = location.pathname.split('/').pop() || 'index.html';
-  const current = { 'learn.html': 'learn', 'landscape.html': 'explore', 'proof.html': 'proof', 'step4.html': 'proof' }[file] || 'home';
+  const current = { 'learn.html': 'learn', 'landscape.html': 'explore', 'proof.html': 'proof', 'step4.html': 'proof', 'qa.html': 'qa' }[file] || 'home';
   // Full-screen 3D pages get a fixed bar over the scene; scrolling pages get a sticky one.
   const fixed = current === 'home' || current === 'explore';
 
